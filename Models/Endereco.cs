@@ -10,12 +10,12 @@ namespace ProAuto.Models
     public class Endereco
     {
         public int Id { get; set;}
-        public String? Complemento;
-        public String? Estado;
-        public String? Cidade;
-        public String? Bairro;
-        public String? Rua;
-        public int Numero;
+        public String? Complemento { get; set;}
+        public String? Estado { get; set;}
+        public String? Cidade { get; set;}
+        public String? Bairro { get; set;}
+        public String? Rua { get; set;}
+        public int Numero { get; set;}
         public int AssociadoId { get; set; }
         public Associado? Associado { get; set; }
 
