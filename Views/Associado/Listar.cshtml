@@ -1,0 +1,46 @@
+@model ProAuto.DTOs.ListaAssociadosDTO
+
+@{
+    ViewData["Title"] = "Associados";
+}
+
+<h4>Associados</h4>
+
+<p>
+<a asp-action="Registrar">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Associados![0].Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Associados![0].CPF)
+            </th><th>
+                @Html.DisplayNameFor(model => model.Associados![0].Telefone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Associados!)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                    <a asp-action="Remover" asp-route-id="@item.Id">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

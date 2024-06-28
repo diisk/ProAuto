@@ -1,0 +1,77 @@
+@model ProAuto.DTOs.EditarAssociadoDTO
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h4>Editar Associado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registrar" method="post">
+            <div class="form-group">
+                <label asp-for="Associado!.Nome" class="control-label"></label>
+                <input asp-for="Associado!.Nome" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Associado!.CPF" class="control-label"></label>
+                <input asp-for="Associado!.CPF" class="form-control mascarar-cpf" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Associado!.Telefone" class="control-label"></label>
+                <input asp-for="Associado!.Telefone" class="form-control mascarar-telefone" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoVeiculo!.Placa" class="control-label"></label>
+                <input asp-for="NovoVeiculo!.Placa" class="form-control" />
+                <span asp-validation-for="NovoVeiculo!.Placa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoEndereco!.Estado" class="control-label"></label>
+                <input asp-for="NovoEndereco!.Estado" class="form-control" />
+                <span asp-validation-for="NovoEndereco!.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoEndereco!.Cidade" class="control-label"></label>
+                <input asp-for="NovoEndereco!.Cidade" class="form-control" />
+                <span asp-validation-for="NovoEndereco!.Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoEndereco!.Bairro" class="control-label"></label>
+                <input asp-for="NovoEndereco!.Bairro" class="form-control" />
+                <span asp-validation-for="NovoEndereco!.Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoEndereco!.Rua" class="control-label"></label>
+                <input asp-for="NovoEndereco!.Rua" class="form-control" />
+                <span asp-validation-for="NovoEndereco!.Rua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoEndereco!.Numero" class="control-label"></label>
+                <input asp-for="NovoEndereco!.Numero" class="form-control" />
+                <span asp-validation-for="NovoEndereco!.Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NovoEndereco!.Complemento" class="control-label"></label>
+                <input asp-for="NovoEndereco!.Complemento" class="form-control" />
+                <span asp-validation-for="NovoEndereco!.Complemento" class="text-danger"></span>
+            </div>
+            <br />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Finalizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
