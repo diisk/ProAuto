@@ -9,7 +9,16 @@ namespace ProAuto.Models
     public class Veiculo
     {
         public int Id { get; set; }
-        [Required]
         public String? Placa { get; set; }
+
+        public int AssociadoId { get; set; }
+
+        public Associado? Associado { get; set; }
+
+        public Veiculo(){}
+
+        public Veiculo(String placa){
+            this.Placa = placa;
+        }
     }
 }
