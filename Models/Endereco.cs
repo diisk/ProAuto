@@ -1,27 +1,29 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using ProAuto.DTOs;
+using ProAuto.Helpers;
 
 namespace ProAuto.Models
 {
     public class Endereco
     {
-        public int Id { get; set;}
-        public String? Complemento { get; set;}
-        public String? Estado { get; set;}
-        public String? Cidade { get; set;}
-        public String? Bairro { get; set;}
-        public String? Rua { get; set;}
-        public int Numero { get; set;}
+        public int Id { get; set; }
+        public String? Complemento { get; set; }
+        [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
+        public String? Estado { get; set; }
+        [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
+        public String? Cidade { get; set; }
+        [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
+        public String? Bairro { get; set; }
+        [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
+        public String? Rua { get; set; }
+        public int Numero { get; set; }
         public int AssociadoId { get; set; }
         public Associado? Associado { get; set; }
 
-        public Endereco(){}
+        public Endereco() { }
 
-        public Endereco(CreateAssociadoDTO dto){
+        public Endereco(CreateAssociadoDTO dto)
+        {
             this.Bairro = dto.Bairro;
             this.Cidade = dto.Cidade;
             this.Estado = dto.Estado;
@@ -30,7 +32,8 @@ namespace ProAuto.Models
             this.Numero = dto.Numero;
         }
 
-        public Endereco(Endereco endereco){
+        public Endereco(Endereco endereco)
+        {
             this.Bairro = endereco.Bairro;
             this.Cidade = endereco.Cidade;
             this.Estado = endereco.Estado;
