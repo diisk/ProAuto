@@ -8,7 +8,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Pesquisar" method="post">
+        <form asp-action="pesquisar" method="post">
             <div class="form-group">
                 <label asp-for="CPF" class="control-label"></label>
                 <input asp-for="CPF" class="form-control mascara-cpf" maxlength="14"/>
@@ -30,7 +30,7 @@
 </div>
 <br />
 <div>
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="index">Voltar</a>
 </div>
 
 @section Scripts {

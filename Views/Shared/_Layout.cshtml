@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProAuto</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/sweetalert2/dist/sweetalert2.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProAuto.styles.css" asp-append-version="true" />
 </head>
@@ -15,7 +16,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center font-weight-bold" asp-area=""
-                    asp-controller="Associado" asp-action="Pesquisar">
+                    asp-controller="associados" asp-action="pesquisar">
                     <div style="overflow: hidden;width: 40px;height: 35px;">
                         <img src="~/logo.png" width="40px" />
                     </div>
@@ -27,7 +28,7 @@
                 </a>
 
                 <a class="btn btn-primary rounded-pill pt-1 pb-1 ps-3 pe-3 text-decoration-none" asp-area=""
-                    asp-controller="Associado" asp-action="Listar">
+                    asp-controller="associados" asp-action="listar">
                     Associados (Admin)
                 </a>
             </div>
@@ -46,7 +47,10 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/mascaras.js" asp-append-version="true"></script>
+    <script src="~/lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="~/js/alerts.js" asp-append-version="true"></script>
+    <script src="~/js/masks.js" asp-append-version="true"></script>
+    <script src="~/js/group-validations.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

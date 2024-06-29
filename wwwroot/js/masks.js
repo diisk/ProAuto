@@ -7,7 +7,6 @@ function mascararCpf() {
   [...document.getElementsByClassName("mascara-cpf")].forEach((input) => {
     const mascarar = (input) => {
       const text = input.value.replaceAll(/\D/g, "");
-      console.log("Teste",text)
       let ret = "";
       for (let i = 0; i < text.length; i++) {
         if(i>10) break;

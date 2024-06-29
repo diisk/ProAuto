@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ProAuto.Data;
 using ProAuto.Interfaces.Repositories;
 using ProAuto.Interfaces.Services;
@@ -14,8 +13,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IAssociadoRepository, AssociadoRepository>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<IAssociadoService, AssociadoService>();
 builder.Services.AddScoped<IVeiculoService, VeiculoService>();
+builder.Services.AddScoped<IEnderecoService, EnderecoService>();
 
 var app = builder.Build();
 
@@ -36,6 +37,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Associado}/{action=Pesquisar}/{id?}");
+    pattern: "{controller=associados}/{action=pesquisar}/{id?}");
 
 app.Run();
