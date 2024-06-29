@@ -32,6 +32,13 @@ namespace ProAuto.Services
             return associado;
         }
 
+        public async Task<Associado> Atualizar(Associado associado)
+        {
+            if (associado.Id > 0)
+                await _associadoRepository.Save(associado);
+            return associado;
+        }
+
         public async Task<List<Associado>> FindAll()
         {
             return await _associadoRepository.FindAll();

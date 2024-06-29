@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ProAuto.DTOs;
 using ProAuto.Models;
 
@@ -14,6 +10,8 @@ namespace ProAuto.Interfaces.Services
         public Task<List<Associado>> FindAll();
         public Task<Associado?> FindById(int id);
         public Task<Associado?> PesquisarAssociado(PesquisarDTO dto);
+
+        public Task<Associado> Atualizar(Associado associado);
 
 
     }

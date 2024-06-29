@@ -7,6 +7,8 @@ namespace ProAuto.Interfaces.Services
 
         public Task<Veiculo?> PesquisarVeiculo(String placa);
 
+        public Task<Veiculo?> Salvar(Veiculo veiculo);
+
 
     }
 }

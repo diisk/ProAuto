@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ProAuto.DTOs;
-using ProAuto.Exceptions;
-using ProAuto.Helpers;
 using ProAuto.Interfaces.Repositories;
 using ProAuto.Interfaces.Services;
 using ProAuto.Models;
@@ -22,6 +15,11 @@ namespace ProAuto.Services
         public async Task<Veiculo?> PesquisarVeiculo(string placa)
         {
             return await _veiculoRepository.FindByPlaca(placa);
+        }
+
+        public async Task<Veiculo?> Salvar(Veiculo veiculo)
+        {
+            return await _veiculoRepository.Save(veiculo);
         }
     }
 }
