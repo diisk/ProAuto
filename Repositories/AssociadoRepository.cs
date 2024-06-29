@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProAuto.Data;
 using ProAuto.Interfaces.Repositories;
@@ -45,7 +41,6 @@ namespace ProAuto.Repositories
                 await _context.Associados.AddAsync(associado);
             }
             await _context.SaveChangesAsync();
-            var tst = associado.Endereco;
             return associado;
         }
 
