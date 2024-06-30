@@ -18,10 +18,12 @@ namespace ProAuto.Controllers
             _veiculoService = veiculoService;
         }
 
-        public IActionResult Listar()
+        public async Task<IActionResult> Listar()
         {
-            ListaAssociadosDTO associadoViewModel = new ListaAssociadosDTO();
-            return View(associadoViewModel);
+            ListaAssociadosDTO dto = new ListaAssociadosDTO();
+            dto.Associados = await _associadoService.FindAll();
+            dto.Associados = dto.Associados.OrderBy(ass => ass.Nome).ToList();
+            return View(dto);
         }
 
         public IActionResult Registrar()
@@ -38,7 +40,11 @@ namespace ProAuto.Controllers
                 try
                 {
                     await _associadoService.Create(dto);
-                    return RedirectToAction(nameof(Listar));
+                    return RedirectToAction(nameof(Listar), new
+                    {
+                        tipoAlerta = Enum.GetName(TipoAlerta.SUCESSO),
+                        mensagem = Mensagens.SUCESSO_ASSOCIADO
+                    });
                 }
                 catch (RegistrarAssociadoException ex)
                 {

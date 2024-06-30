@@ -16,6 +16,7 @@ namespace ProAuto.Models
         public String? Bairro { get; set; }
         [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
         public String? Rua { get; set; }
+        [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
         public int Numero { get; set; }
         public int AssociadoId { get; set; }
         public Associado? Associado { get; set; }

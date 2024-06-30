@@ -18,7 +18,7 @@ namespace ProAuto.Services
         }
         public async Task<Associado> Create(CreateAssociadoDTO dto)
         {
-            if (await _associadoRepository.FindByCPF(dto.CPF!) != null)
+            if (await _associadoRepository.FindByCPF(Utils.ApenasNumeros(dto.CPF!)) != null)
                 throw new RegistrarAssociadoException(Mensagens.ERRO_CPF_CADASTRADO);
 
             if (await _veiculoService.PesquisarVeiculo(dto.PlacaVeiculo!) != null)

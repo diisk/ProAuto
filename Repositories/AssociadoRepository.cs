@@ -15,7 +15,7 @@ namespace ProAuto.Repositories
 
         public async Task<List<Associado>> FindAll()
         {
-            return await _context.Associados.ToListAsync();
+            return await _context.Associados.Include(a => a.Veiculos).Include(a => a.Endereco).ToListAsync();
         }
 
         public async Task<Associado?> FindByCPF(string cpf)

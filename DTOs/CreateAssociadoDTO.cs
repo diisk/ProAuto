@@ -22,9 +22,11 @@ namespace ProAuto.DTOs
         [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
         public String? Rua { get; set; }
         public String? Complemento { get; set; }
+        [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
         public int Numero { get; set; }
         [Required(ErrorMessage = Mensagens.ERRO_CAMPO_OBRIGATORIO)]
         [Display(Name = "Placa do Veículo")]
+        [StringLength(7, MinimumLength = 7, ErrorMessage = Mensagens.ERRO_PLACA_INVALIDA)]
         public String? PlacaVeiculo { get; set; }
     }
 }

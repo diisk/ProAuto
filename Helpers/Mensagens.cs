@@ -14,7 +14,8 @@ namespace ProAuto.Helpers
 
 
         public const String SUCESSO_VEICULO = "Veículo cadastrado com sucesso!";
-        public const String SUCESSO_ENDERECO = "Endereco atualizad com sucesso!";
+        public const String SUCESSO_ENDERECO = "Endereco atualizado com sucesso!";
+        public const String SUCESSO_ASSOCIADO = "Associado registrado com sucesso!";
 
 
 
