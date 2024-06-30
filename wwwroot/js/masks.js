@@ -4,50 +4,69 @@
 });
 
 function mascararCpf() {
-  [...document.getElementsByClassName("mascara-cpf")].forEach((input) => {
-    const mascarar = (input) => {
-      const text = input.value.replaceAll(/\D/g, "");
-      let ret = "";
-      for (let i = 0; i < text.length; i++) {
-        if(i>10) break;
-        if ([3, 6].includes(i)) ret += ".";
-        if (i == 9) ret += "-";
-        ret += text[i];
-      }
-      input.value = ret;
+  [...document.getElementsByClassName("mascara-cpf")].forEach((element) => {
+    console.log("0", element);
+
+    const mascarar = (mElement) => {
+      if (mElement.value) mElement.value = aplicarMascaraCpf(mElement.value);
+      if (mElement.innerText)
+        mElement.innerText = aplicarMascaraCpf(mElement.innerText);
     };
-    input.addEventListener("keyup", () => {
-      mascarar(input);
+    element.addEventListener("keyup", () => {
+      mascarar(element);
     });
-    input.addEventListener("change", () => {
-      mascarar(input);
+    element.addEventListener("change", () => {
+      mascarar(element);
     });
-    mascarar(input);
+    mascarar(element);
   });
 }
 
+function aplicarMascaraCpf(text) {
+  console.log(text, "1");
+  text = text.replaceAll(/\D/g, "");
+  let ret = "";
+  for (let i = 0; i < text.length; i++) {
+    if (i > 10) break;
+    if ([3, 6].includes(i)) ret += ".";
+    if (i == 9) ret += "-";
+    ret += text[i];
+  }
+  return ret;
+}
+
+function aplicarMascaraTelefone(text) {
+  text = text.replaceAll(/\D/g, "");
+  let ret = "(";
+  for (let i = 0; i < text.length; i++) {
+    if (i > 10) break;
+    if (i == 2) ret += ")";
+    if ((i == 6 && text.length <= 10) || (i == 7 && text.length > 10))
+      ret += "-";
+    ret += text[i];
+  }
+  return ret;
+}
+
 function mascararTelefone() {
-  [...document.getElementsByClassName("mascara-telefone")].forEach((input) => {
-    const mascarar = (input) => {
-      const text = input.value.replaceAll(/\D/g, "");
-      if (text.length > 0) {
-        let ret = "(";
-        for (let i = 0; i < text.length; i++) {
-          if(i>10) break;
-          if (i == 2) ret += ")";
-          if ((i == 6 && text.length <= 10) || (i == 7 && text.length > 10))
-            ret += "-";
-          ret += text[i];
+  [...document.getElementsByClassName("mascara-telefone")].forEach(
+    (element) => {
+      const mascarar = (mElement) => {
+        if (mElement.value && mElement.value.length > 0) {
+          mElement.value = aplicarMascaraTelefone(mElement.value);
         }
-        input.value = ret;
-      }
-    };
-    input.addEventListener("keyup", () => {
-      mascarar(input);
-    });
-    input.addEventListener("change", () => {
-      mascarar(input);
-    });
-    mascarar(input);
-  });
+
+        if (mElement.innerText && mElement.innerText.length > 0) {
+          mElement.innerText = aplicarMascaraTelefone(mElement.innerText);
+        }
+      };
+      element.addEventListener("keyup", () => {
+        mascarar(element);
+      });
+      element.addEventListener("change", () => {
+        mascarar(element);
+      });
+      mascarar(element);
+    }
+  );
 }

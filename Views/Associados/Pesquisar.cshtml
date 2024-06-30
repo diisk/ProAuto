@@ -4,33 +4,38 @@
     ViewData["Title"] = "Pesquisar";
 }
 
-<h4>Pesquisar Associado</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="pesquisar" method="post">
-            <div class="form-group">
-                <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" class="form-control mascara-cpf" maxlength="14"/>
-                <span asp-validation-for="CPF" class="text-danger"></span>
+<div class="proauto-main">
+    <section class="main-card">
+        <header>
+            <div class="main-card-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <div class="form-group">
-                <label asp-for="PlacaVeiculo" class="control-label"></label>
-                <input asp-for="PlacaVeiculo" class="form-control" />
-                <span asp-validation-for="PlacaVeiculo" class="text-danger"></span>
+            <div>
+                <span>
+                    Pesquisar Associado
+                </span>
             </div>
-            <br />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Pesquisar" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-<br />
-<div>
-    <a asp-action="index">Voltar</a>
+        </header>
+        <div class="main-card-content">
+            <form asp-action="pesquisar" method="post">
+                <div class="proauto-form wid-100">
+                    <label asp-for="CPF"></label>
+                    <input asp-for="CPF" class="mascara-cpf" maxlength="14" />
+                    <span asp-validation-for="CPF" class="text-danger"></span>
+                </div>
+                <div class="proauto-form wid-100">
+                    <label asp-for="PlacaVeiculo"></label>
+                    <input asp-for="PlacaVeiculo" maxlength="7"/>
+                    <span asp-validation-for="PlacaVeiculo" class="text-danger"></span>
+                </div>
+                <div class="min-h">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </div>
+                
+                <button type="submit" class="proauto-btn" >Pesquisar</button>
+            </form>
+        </div>
+    </section>
 </div>
 
 @section Scripts {

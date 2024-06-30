@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProAuto</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/dist/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/sweetalert2/dist/sweetalert2.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProAuto.styles.css" asp-append-version="true" />
@@ -13,42 +14,61 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center font-weight-bold" asp-area=""
-                    asp-controller="associados" asp-action="pesquisar">
-                    <div style="overflow: hidden;width: 40px;height: 35px;">
-                        <img src="~/logo.png" width="40px" />
-                    </div>
-                    <div class="ms-2">
-                        <span>
-                            ProAuto
-                        </span>
+        <div class="side-bar">
+            <header>
+                <div class="side-bar-logo">
+                    <img src="~/logo.png" width="40px" />
+                </div>
+                <div class="sider-bar-title">
+                    <span>
+                        ProAuto
+                    </span>
+                </div>
+            </header>
+            <nav>
+                <a class="side-nav-item" asp-area="" asp-controller="associados" asp-action="pesquisar">
+                    <div class="d-flex">
+                        <div class="side-nav-icon">
+                            <i class="fa-solid fa-magnifying-glass d-flex align-items-center" style="font-size: 22px;"></i>
+                        </div>
+                        <div class="side-nav-text">
+                            <span>
+                                Pesquisar
+                            </span>
+                        </div>
                     </div>
                 </a>
-
-                <a class="btn btn-primary rounded-pill pt-1 pb-1 ps-3 pe-3 text-decoration-none" asp-area=""
-                    asp-controller="associados" asp-action="listar">
-                    Associados (Admin)
+                <a class="side-nav-item" asp-area="" asp-controller="associados" asp-action="listar">
+                    <div class="d-flex">
+                        <div class="side-nav-icon">
+                            <i class="fa-solid fa-user-tie" style="font-size:26px;"></i>
+                        </div>
+                        <div class="side-nav-text">
+                            <span>
+                                Associados (Admin)
+                            </span>
+                        </div>
+                    </div>
                 </a>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main>
+        @RenderBody()
+    </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ProAuto - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div>
+            <span>
+                &copy; 2024 - Lucas Rafael
+            </span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="~/js/alerts.js" asp-append-version="true"></script>
+    <script src="~/js/associados.js" asp-append-version="true"></script>
     <script src="~/js/masks.js" asp-append-version="true"></script>
     <script src="~/js/group-validations.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

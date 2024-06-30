@@ -4,122 +4,136 @@
     ViewData["Title"] = "Editar";
 }
 
-<h4>Editar Associado</h4>
-<hr />
-<div class="row">
-    <div class="col-10">
-        <div class="border-bottom-1 border-bottom mb-2">
-            <span class="text-secondary fs-5">Dados Associado</span>
-        </div>
-        <div class="d-flex row">
-            <div class="form-group col-5">
-                <label asp-for="Associado!.Nome" class="control-label"></label>
-                <input asp-for="Associado!.Nome" class="form-control" disabled />
-            </div>
-            <div class="form-group col-5">
-                <label asp-for="Associado!.CPF" class="control-label"></label>
-                <input asp-for="Associado!.CPF" class="form-control mascarar-cpf" disabled />
-            </div>
-        </div>
-        <div class="d-flex row">
-            <div class="form-group col-5">
-                <label asp-for="Associado!.Telefone" class="control-label"></label>
-                <input asp-for="Associado!.Telefone" class="form-control mascarar-telefone" disabled />
-            </div>
-        </div>
-        <form asp-controller="veiculos" asp-action="registrar" method="post">
-
-            <div class="border-bottom-1 border-bottom mb-2 mt-3">
-                <span class="text-secondary fs-5">Veículos</span>
+<div class="proauto-main">
+    <section class="main-card">
+        <header>
+            <div class="main-card-icon">
+                <i class="fa-solid fa-person"></i>
             </div>
             <div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Associado!.Veiculos![0].Placa)
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.Associado!.Veiculos!)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Placa)
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                <span>
+                    Dados Associado
+                </span>
             </div>
-            <div class="form-group col-5">
-                <input asp-for="NovoVeiculo!.AssociadoId" type="hidden" readonly />
-                <label asp-for="NovoVeiculo!.Placa" class="control-label"></label>
-                <input asp-for="NovoVeiculo!.Placa" class="form-control" />
-                <span asp-validation-for="NovoVeiculo!.Placa" class="text-danger"></span>
-            </div>
-            <br />
-            <div class="form-group">
-                <button type="submit" name="submitType" value="Veiculo" class="btn btn-primary rounded-pill">Adicionar
-                    Veículo</button>
-            </div>
-        </form>
-        <form asp-controller="enderecos" asp-action="editar" method="post">
-            <div class="border-bottom-1 border-bottom mb-2 mt-3">
-                <span class="text-secondary fs-5">Endereço</span>
-            </div>
-            <input asp-for="NovoEndereco!.Id" type="hidden" readonly />
-            <input asp-for="NovoEndereco!.AssociadoId" type="hidden" readonly />
-            <div class="d-flex row">
-                <div class="form-group col-5">
-                    <label asp-for="NovoEndereco!.Estado" class="control-label"></label>
-                    <input asp-for="NovoEndereco!.Estado" class="form-control" />
-                    <span asp-validation-for="NovoEndereco!.Estado" class="text-danger"></span>
-                </div>
-                <div class="form-group col-5">
-                    <label asp-for="NovoEndereco!.Cidade" class="control-label"></label>
-                    <input asp-for="NovoEndereco!.Cidade" class="form-control" />
-                    <span asp-validation-for="NovoEndereco!.Cidade" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="d-flex row">
-                <div class="form-group col-5">
-                    <label asp-for="NovoEndereco!.Bairro" class="control-label"></label>
-                    <input asp-for="NovoEndereco!.Bairro" class="form-control" />
-                    <span asp-validation-for="NovoEndereco!.Bairro" class="text-danger"></span>
-                </div>
-                <div class="form-group col-5">
-                    <label asp-for="NovoEndereco!.Rua" class="control-label"></label>
-                    <input asp-for="NovoEndereco!.Rua" class="form-control" />
-                    <span asp-validation-for="NovoEndereco!.Rua" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="d-flex row">
-                <div class="form-group col-5">
-                    <label asp-for="NovoEndereco!.Numero" class="control-label"></label>
-                    <input asp-for="NovoEndereco!.Numero" class="form-control" />
-                    <span asp-validation-for="NovoEndereco!.Numero" class="text-danger"></span>
-                </div>
-                <div class="form-group col-5">
-                    <label asp-for="NovoEndereco!.Complemento" class="control-label"></label>
-                    <input asp-for="NovoEndereco!.Complemento" class="form-control" />
-                    <span asp-validation-for="NovoEndereco!.Complemento" class="text-danger"></span>
+        </header>
+        <div class="main-card-content">
+            <div class="d-flex">
+                <div class="proauto-form wid-100">
+                    <label asp-for="Associado!.Nome" class="control-label"></label>
+                    <input asp-for="Associado!.Nome" class="form-control" disabled />
                 </div>
             </div>
 
+            <div class="d-flex">
+                <div class="proauto-form wid-50">
+                    <label asp-for="Associado!.CPF" class="control-label"></label>
+                    <input asp-for="Associado!.CPF" class="form-control mascara-cpf" disabled />
+                </div>
+                <div class="proauto-form wid-50">
+                    <label asp-for="Associado!.Telefone" class="control-label"></label>
+                    <input asp-for="Associado!.Telefone" class="form-control mascara-telefone" disabled />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main-card">
+        <header>
+            <div class="main-card-icon">
+                <i class="fa-solid fa-car-side"></i>
+            </div>
+            <div>
+                <span>
+                    Veículos
+                </span>
+            </div>
+        </header>
+        <div class="main-card-content">
+            <form asp-controller="veiculos" asp-action="registrar" method="post">
+                <div class="veiculos-sub">
+                    <span>Placas cadastradas</span>
+                </div>
+                <div class="veiculos-placas">
+                    @foreach (var item in Model.Associado!.Veiculos!)
+                    {
+                        <div class="placa-row">
+                            <span>
+                                @Html.DisplayFor(modelItem => item.Placa)
+                            </span>
+                        </div>
+                    }
+                </div>
+                <div class="proauto-form">
+                    <input asp-for="NovoVeiculo!.AssociadoId" type="hidden" readonly />
+                    <label class="control-label">Nova Placa</label>
+                    <input asp-for="NovoVeiculo!.Placa" class="form-control" />
+                    <span asp-validation-for="NovoVeiculo!.Placa" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" class="proauto-btn">Adicionar
+                        Veículo</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="main-card">
+        <header>
+            <div class="main-card-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+                <span>
+                    Endereço
+                </span>
+            </div>
+        </header>
+        <div class="main-card-content">
+            <form asp-controller="enderecos" asp-action="editar" method="post">
+                <input asp-for="NovoEndereco!.Id" type="hidden" readonly />
+                <input asp-for="NovoEndereco!.AssociadoId" type="hidden" readonly />
+                <div class="d-flex">
+                    <div class="proauto-form wid-50">
+                        <label asp-for="NovoEndereco!.Estado" class="control-label"></label>
+                        <input asp-for="NovoEndereco!.Estado" class="form-control" />
+                        <span asp-validation-for="NovoEndereco!.Estado" class="text-danger"></span>
+                    </div>
+                    <div class="proauto-form wid-50">
+                        <label asp-for="NovoEndereco!.Cidade" class="control-label"></label>
+                        <input asp-for="NovoEndereco!.Cidade" class="form-control" />
+                        <span asp-validation-for="NovoEndereco!.Cidade" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="proauto-form wid-50">
+                        <label asp-for="NovoEndereco!.Bairro" class="control-label"></label>
+                        <input asp-for="NovoEndereco!.Bairro" class="form-control" />
+                        <span asp-validation-for="NovoEndereco!.Bairro" class="text-danger"></span>
+                    </div>
+                    <div class="proauto-form wid-50">
+                        <label asp-for="NovoEndereco!.Complemento" class="control-label"></label>
+                        <input asp-for="NovoEndereco!.Complemento" class="form-control" />
+                        <span asp-validation-for="NovoEndereco!.Complemento" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="proauto-form wid-30">
+                        <label asp-for="NovoEndereco!.Numero" class="control-label"></label>
+                        <input asp-for="NovoEndereco!.Numero" class="form-control" />
+                        <span asp-validation-for="NovoEndereco!.Numero" class="text-danger"></span>
+                    </div>
+                    <div class="proauto-form wid-100">
+                        <label asp-for="NovoEndereco!.Rua" class="control-label"></label>
+                        <input asp-for="NovoEndereco!.Rua" class="form-control" />
+                        <span asp-validation-for="NovoEndereco!.Rua" class="text-danger"></span>
+                    </div>
 
-            <br />
-            <div class="form-group">
-                <button type="submit" name="submitType" value="Endereco" class="btn btn-primary rounded-pill">Atualizar
+                </div>
+                <br />
+                <button type="submit" class="proauto-btn">Atualizar
                     Endereço</button>
-            </div>
-        </form>
-    </div>
-</div>
-<br />
-<div>
-    <a asp-action="Index">Voltar</a>
+            </form>
+        </div>
+    </section>
 </div>
 
 @section Scripts {
